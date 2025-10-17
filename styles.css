@@ -1,16 +1,14 @@
-/* Container */
+/* Grid container */
 #grid {
   margin: 0;
-  display: grid;                           /* enable grid layout */ /* [web:20] */
-  grid-template-rows: 124px 124px 124px 124px 124px;  /* five equal rows */ /* [web:2] */
-  grid-template-columns: 242.5px 242.5px 242.5px 242.5px; /* four equal cols */ /* [web:15] */
-  gap: 10px 10px;                          /* row-gap then column-gap */ /* [web:5] */
-  background: #0a0;
-  min-height: 100vh;
-  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: 124px 124px 124px 124px 124px; /* five rows */
+  grid-template-columns: 242.5px 242.5px 242.5px 242.5px; /* four columns */
+  gap: 10px 10px; /* row-gap column-gap */
+  background: #0a0; /* green background */
 }
 
-/* Items (visuals) */
+/* Base styling for all grid items */
 #grid > div {
   background: #0a0;
   color: #fff;
@@ -19,14 +17,51 @@
   box-sizing: border-box;
 }
 
-/* Placement using spans (line-based) */
-#grid > div:nth-child(1) { grid-column: span 4 / auto; }  /* top bar across all 4 cols */ [web:11]
-#grid > div:nth-child(2) { grid-row: span 4 / auto; }     /* left column spanning 4 rows */ [web:24]
-#grid > div:nth-child(3) { /* row 2, col 2 by flow */ }    /* auto placement lands here */ [web:18]
-#grid > div:nth-child(4) { grid-column: span 2 / auto; }  /* row 2, cols 3–4 */ [web:11]
-#grid > div:nth-child(5) { grid-column: span 2 / auto; }  /* row 3, cols 2–3 */ [web:11]
-#grid > div:nth-child(6) { /* row 3, col 4 */ }            /* auto placement */ [web:18]
-#grid > div:nth-child(7) { /* row 4, col 2 */ }            /* auto placement */ [web:18]
-#grid > div:nth-child(8) { /* row 4, col 3 */ }            /* auto placement */ [web:18]
-#grid > div:nth-child(9) { /* row 4, col 4 */ }            /* auto placement */ [web:18]
-#grid > div:nth-child(10){ grid-column: span 3 / auto; }  /* bottom bar across cols 2–4 */ [web:11]
+/* Placements */
+#grid > div:nth-child(1) {
+  grid-column: span 4 / auto;   /* full top row */
+}
+
+#grid > div:nth-child(2) {
+  grid-row: span 4 / auto;      /* tall left bar */
+}
+
+#grid > div:nth-child(3) {
+  grid-column: 2 / span 1;      /* row 2, col 2 */
+  grid-row: 2 / span 1;
+}
+
+#grid > div:nth-child(4) {
+  grid-column: span 2 / auto;   /* row 2, cols 3–4 */
+  grid-row: 2 / span 1;
+}
+
+#grid > div:nth-child(5) {
+  grid-column: span 2 / auto;   /* row 3, cols 2–3 */
+  grid-row: 3 / span 1;
+}
+
+#grid > div:nth-child(6) {
+  grid-column: 4 / span 1;      /* row 3, col 4 */
+  grid-row: 3 / span 1;
+}
+
+#grid > div:nth-child(7) {
+  grid-column: 2 / span 1;      /* row 4, col 2 */
+  grid-row: 4 / span 1;
+}
+
+#grid > div:nth-child(8) {
+  grid-column: 3 / span 1;      /* row 4, col 3 */
+  grid-row: 4 / span 1;
+}
+
+#grid > div:nth-child(9) {
+  grid-column: 4 / span 1;      /* row 4, col 4 */
+  grid-row: 4 / span 1;
+}
+
+#grid > div:nth-child(10) {
+  grid-column: span 3 / auto;   /* row 5, cols 2–4 */
+  grid-row: 5 / span 1;
+}
